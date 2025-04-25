@@ -6,7 +6,7 @@
 
 
 ### 2025-I
-
+----
 
 ## Introducción
 La presente guia presenta la configuracion inicial de comunicacion serial por UART  para configuracion de red y habilitacion de comunicacion `ssh`(*Secure Sheel*)  a la  `Raspberry Pi Zero 2 W`
@@ -169,6 +169,46 @@ network={
     priority=2
 }
 ```
+---
+
+##  Instalar y usar `rsync` para sincronización los  archivos pc y la Raspberrypi
+
+`rsync`  sirve para  archivos entre tu Raspberry Pi y  el  PC de forma rápida y eficiente. Funciona perfectamente sobre SSH.
+📦 Instalación en la Raspberry Pi
+
+Conectado por UART o SSH, luego:
 
 
+### Raspberry Pi:
 
+```bash
+sudo apt update
+sudo apt install rsync
+```
+
+### PC:
+
+```bash
+sudo apt install rsync
+```
+
+### Ejecucion:
+
+Subir un archivo desde tu PC al Pi:
+```bash
+rsync -avz ./archivo.txt pi@raspberrypi.local:/home/pi/
+```
+Descargar una carpeta desde el Pi a al PC:
+
+```bash
+rsync -avz pi@raspberrypi.local:/home/pi/proyecto/ ./backup-proyecto/
+```
+
+Sincronizar un proyecto entero (solo archivos nuevos o modificados):
+```bash
+rsync -avz ./proyecto-local/ pi@raspberrypi.local:/home/pi/proyecto/
+```
+
+### NOTA:
+
+Se puede usar  la direccion  IP de las RasberryPi en vez de ```raspberrypi.local``` si mDNS no funciona, esto teniendo en cuenta que previamente se haya  hecho  la confiracion de red.
