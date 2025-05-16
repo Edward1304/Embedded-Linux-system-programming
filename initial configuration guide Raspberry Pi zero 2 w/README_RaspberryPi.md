@@ -5,7 +5,7 @@
 #### Monitor. *Edward Fabian Goyeneche Velandia* - *egoyeneche@unal.edu.co*
 
 
-### 2025-I
+### 2025-II
 ----
 
 ## Introducción
@@ -212,3 +212,15 @@ rsync -avz ./proyecto-local/ pi@raspberrypi.local:/home/pi/proyecto/
 ### NOTA:
 
 Se puede usar  la direccion  IP de las RasberryPi en vez de ```raspberrypi.local``` si mDNS no funciona, esto teniendo en cuenta que previamente se haya  hecho  la confiracion de red.
+
+
+
+------
+```bash
+sudo nmtui
+```
+
+edit conextion
+
+
+    
